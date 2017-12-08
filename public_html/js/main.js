@@ -8,141 +8,140 @@ const deviceMinWidth_sm = 768;
 const preloaderAnimationDuration = 400;
 
 // Cart class
-class Card{
-	static GetStatusList(){
+function Card(id){
+	GetStatusList = function(){
 		return ["default", "selected", "disabled", "on_process"]; // "on_process" not used now
-	}
-	constructor(id){
-		this.id = id;
-		
-		
-		this.selector = ".js-cat-food-block";
-		this.selectorCard = ".js-cat-food-block-card";
-		this.selectorOrderText = ".js-cat-food-block-order-text";
-		this.selectorOrderText__Examples = ".js-cat-food-block__order-text-example";
-		this.hoverClass = "selected-can-be-hover";
-		
-		this.status = "default";
+	},
+	this.id = id;
+	
+	
+	this.selector = ".js-cat-food-block";
+	this.selectorCard = ".js-cat-food-block-card";
+	this.selectorOrderText = ".js-cat-food-block-order-text";
+	this.selectorOrderText__Examples = ".js-cat-food-block__order-text-example";
+	this.hoverClass = "selected-can-be-hover";
+	
+	this.status = "default";
 
-		
-		this.setStatus = function(newStatus){
-			var thisCard = this;
-			
-			var $DOM_thisCard = $("#" + thisCard.id);
-			
-			if(newStatus == thisCard.status) return 0;
-			if ( $.inArray( newStatus, Card.GetStatusList) ){
-				thisCard.status = newStatus;
-				
-				switch(thisCard.status){ // WARN: callback with NEW status
-					case "default":
-						$DOM_thisCard.removeClass("selected");
-						$DOM_thisCard.removeClass(thisCard.hoverClass);
-						//$DOM_thisCard.addClass("default");
-						var newText = thisCard.__getExampleTextByStatus(thisCard.status);
-						if(newText !== false){
-							$DOM_thisCard.find(thisCard.selectorOrderText).html(newText);
-							thisCard.__bindClickOnOrderLink();
-						}
-						break;
-					case "selected":
-						//$DOM_thisCard.removeClass("default");
-						$DOM_thisCard.addClass("selected");
-						var newText = thisCard.__getExampleTextByStatus(thisCard.status);
-						if(newText !== false){
-							$DOM_thisCard.find(thisCard.selectorOrderText).html(newText);
-							//thisCard.__bindClickOnOrderLink();
-						}
-						break;
-					default:
-						console.log("CRITICAL ERROR: BAD NEW STATUS! What happened?");
-						return false;
-						break;
-				}
-				
-				return true;
-			}
-			else return false;
-		};
-		this.getStatus = function(){
-			var thisCard = this;
-			
-			if ( $.inArray( thisCard.status, statusList) ) return status;
-			else return false;
-		};
-		this.__userClickedEvent = function(){
-			var thisCard = this;
-			
-			switch(thisCard.status){
-				case "disabled":
-				case "on_process":
-					return 0;
-					break;
-				case "default":
-					return thisCard.setStatus("selected");
-					break;
-				case "selected":
-					return thisCard.setStatus("default");
-					break;
-				default:
-					return false;
-					break;
-			}
-		};
-		this.__bindClickOnOrderLink = function(){ // Delegate click from order text to card (for switch selection)
-			var thisCard = this;
-			
-			var $DOM_thisCard = $("#" + thisCard.id);
-			
-			var $orderText = $DOM_thisCard.find(thisCard.selectorOrderText);
-			if($orderText.find("a").length){
-				$orderText.find("a").bind("click",function(e){
-					e.preventDefault(e);
-					
-					//$DOM_thisCard.find(thisCard.selectorCard).click();
-					thisCard.__userClickedEvent();
-				});
-			}
-		};
-		this.__getExampleTextByStatus = function(requiredStatus){
-			var thisCard = this;
-			
-			var $DOM_thisCard = $("#" + thisCard.id);
-			
-			if ( $.inArray( requiredStatus, Card.GetStatusList) ){
-				return $DOM_thisCard.find(thisCard.selectorOrderText__Examples + "." + requiredStatus).html();
-			} else return false;
-		};
-		
-		// INIT CARD
+	
+	this.setStatus = function(newStatus){
 		var thisCard = this;
 		
 		var $DOM_thisCard = $("#" + thisCard.id);
 		
-		if($DOM_thisCard.hasClass("disabled")){
-			thisCard.status = "disabled";
-		}else if($DOM_thisCard.hasClass("selected")){
-			thisCard.status = "selected";
-		}else{
-			thisCard.status = "default";
-			thisCard.__bindClickOnOrderLink();
+		if(newStatus == thisCard.status) return 0;
+		if ( $.inArray( newStatus, thisCard.GetStatusList) ){
+			thisCard.status = newStatus;
+			
+			switch(thisCard.status){ // WARN: callback with NEW status
+				case "default":
+					$DOM_thisCard.removeClass("selected");
+					$DOM_thisCard.removeClass(thisCard.hoverClass);
+					//$DOM_thisCard.addClass("default");
+					var newText = thisCard.__getExampleTextByStatus(thisCard.status);
+					if(newText !== false){
+						$DOM_thisCard.find(thisCard.selectorOrderText).html(newText);
+						thisCard.__bindClickOnOrderLink();
+					}
+					break;
+				case "selected":
+					//$DOM_thisCard.removeClass("default");
+					$DOM_thisCard.addClass("selected");
+					var newText = thisCard.__getExampleTextByStatus(thisCard.status);
+					if(newText !== false){
+						$DOM_thisCard.find(thisCard.selectorOrderText).html(newText);
+						//thisCard.__bindClickOnOrderLink();
+					}
+					break;
+				default:
+					console.log("CRITICAL ERROR: BAD NEW STATUS! What happened?");
+					return false;
+					break;
+			}
+			
+			return true;
 		}
-		thisCard.setStatus(thisCard.status);
+		else return false;
+	};
+	this.getStatus = function(){
+		var thisCard = this;
 		
-		$DOM_thisCard.find(thisCard.selectorCard).bind("click",function(e){
-			thisCard.__userClickedEvent();
-		}).bind("mouseleave",function(e){
-			
-			if(thisCard.status == "selected"){
-				if(!$DOM_thisCard.hasClass(thisCard.hoverClass)) $DOM_thisCard.addClass(thisCard.hoverClass);
-			}
-		}).bind("mouseenter",function(e){
-			
-			if(thisCard.status == "selected"){
-				if(!$DOM_thisCard.hasClass(thisCard.hoverClass)) $DOM_thisCard.addClass(thisCard.hoverClass);
-			}
-		});
+		if ( $.inArray( thisCard.status, statusList) ) return status;
+		else return false;
+	};
+	this.__userClickedEvent = function(){
+		var thisCard = this;
+		
+		switch(thisCard.status){
+			case "disabled":
+			case "on_process":
+				return 0;
+				break;
+			case "default":
+				return thisCard.setStatus("selected");
+				break;
+			case "selected":
+				return thisCard.setStatus("default");
+				break;
+			default:
+				return false;
+				break;
+		}
+	};
+	this.__bindClickOnOrderLink = function(){ // Delegate click from order text to card (for switch selection)
+		var thisCard = this;
+		
+		var $DOM_thisCard = $("#" + thisCard.id);
+		
+		var $orderText = $DOM_thisCard.find(thisCard.selectorOrderText);
+		if($orderText.find("a").length){
+			$orderText.find("a").bind("click",function(e){
+				e.preventDefault(e);
+				
+				//$DOM_thisCard.find(thisCard.selectorCard).click();
+				thisCard.__userClickedEvent();
+			});
+		}
+	};
+	this.__getExampleTextByStatus = function(requiredStatus){
+		var thisCard = this;
+		
+		var $DOM_thisCard = $("#" + thisCard.id);
+		
+		if ( $.inArray( requiredStatus, thisCard.GetStatusList) ){
+			return $DOM_thisCard.find(thisCard.selectorOrderText__Examples + "." + requiredStatus).html();
+		} else return false;
+	};
+	
+	// INIT CARD
+	var thisCard = this;
+	
+	var $DOM_thisCard = $("#" + thisCard.id);
+	
+	if($DOM_thisCard.hasClass("disabled")){
+		thisCard.status = "disabled";
+	}else if($DOM_thisCard.hasClass("selected")){
+		thisCard.status = "selected";
+	}else{
+		thisCard.status = "default";
+		thisCard.__bindClickOnOrderLink();
 	}
+	thisCard.setStatus(thisCard.status);
+	
+	$DOM_thisCard.find(thisCard.selectorCard).bind("click",function(e){
+		thisCard.__userClickedEvent();
+	}).bind("mouseleave",function(e){
+		
+		if(thisCard.status == "selected"){
+			if(!$DOM_thisCard.hasClass(thisCard.hoverClass)) $DOM_thisCard.addClass(thisCard.hoverClass);
+		}
+	}).bind("mouseenter",function(e){
+		
+		if(thisCard.status == "selected"){
+			if(!$DOM_thisCard.hasClass(thisCard.hoverClass)) $DOM_thisCard.addClass(thisCard.hoverClass);
+		}
+	});
+	
 	
 };
 
