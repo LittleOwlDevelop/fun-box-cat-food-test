@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./plugins/plugins.css" />
+	<link rel="stylesheet" href="./css/style.css" />
+	<link rel="stylesheet" href="./css/media.css" />
+	<link rel="stylesheet" href="./css/custom.css" />
+	
+	<title>Food For Cat</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Exo+2:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=cyrillic,latin-ext" rel="stylesheet">
+	
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+	<!-- <link rel="manifest" href="./favicon/manifest.json"> -->
+	<link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="theme-color" content="#ffffff">
+</head>
+
+<body class="b-page">
+	<div class="preloader" id="page-preloader">
+		<img class="preloader__animation" src="./img/preloader.gif">
+	</div>
+	
+	<div class="b-page__section section-main">
+		<h1 class="section-main__header">Ты сегодня покормил кота?</h1>
+		
+		<div class="cat-food-set">
+		
+			<!-- ITEM -->
+			<div class="cat-food-set__cat-food-block cat-food-block js-cat-food-block" id="cat-food-block__1">
+				<div class="cat-food-block__card cat-food-block-card js-cat-food-block-card" style="background-image: url(./content-images/cat.png);">
+					<div class="cat-food-block-card__header-text">Сказочное заморское яство</div>
+					<div class="cat-food-block-card__header-text cancel-selected">Котэ не одобряет?</div>
+					
+					<h2 class="cat-food-block-card__item-names">
+						<div class="cat-food-block-card__item-name-1">Нямушка</div>
+						<div class="cat-food-block-card__item-name-2">с фуа-гра</div>
+					</h2>
+					
+					<div class="cat-food-block-card__item-description">
+						<span class="cat-food-block-card__item-description-counter">10</span> порций<br/>
+						мышь в подарок
+					</div>
+					
+					<div class="cat-food-block-card__item-weight">
+						<div class="cat-food-block-card__item-weight-number">0,5</div>
+						<div class="cat-food-block-card__item-weight-measure">кг</div>
+					</div>
+					
+					<div class="cat-food-block-card__disable-overlay"></div>
+				</div>
+				<div class="cat-food-block__order-text cat-food-block-order-text js-cat-food-block-order-text">
+					Чего сидишь? Порадуй котэ, <a href="#" rel="nofollow">купи</a>.
+				</div>
+				
+				<!-- Text to JS-replace -->
+				<div class="cat-food-block__order-text-example js-cat-food-block__order-text-example default">Чего сидишь? Порадуй котэ, <a href="#" rel="nofollow">купи</a>.</div>
+				<div class="cat-food-block__order-text-example js-cat-food-block__order-text-example selected">Печень утки разварная с артишоками.</div>
+				<div class="cat-food-block__order-text-example js-cat-food-block__order-text-example disabled">Печалька, с фуа-гра закончился.</div>
+			</div>
+
+			<!-- ITEM -->
+			<div class="cat-food-set__cat-food-block cat-food-block js-cat-food-block selected selected-can-be-hover" id="cat-food-block__2">
+				<div class="cat-food-block__card cat-food-block-card js-cat-food-block-card" style="background-image: url(./content-images/cat.png);">
+					<div class="cat-food-block-card__header-text">Сказочное заморское яство</div>
+					<div class="cat-food-block-card__header-text cancel-selected">Котэ не одобряет?</div>
+					
+					<h2 class="cat-food-block-card__item-names">
+						<div class="cat-food-block-card__item-name-1">Нямушка</div>
+						<div class="cat-food-block-card__item-name-2">с рыбой</div>
+					</h2>
+					
+					<div class="cat-food-block-card__item-description">
+						<span class="cat-food-block-card__item-description-counter">40</span> порций<br/>
+						<span class="cat-food-block-card__item-description-counter">2</span> мыши в подарок
+					</div>
+					
+					<div class="cat-food-block-card__item-weight">
+						<div class="cat-food-block-card__item-weight-number">2</div>
+						<div class="cat-food-block-card__item-weight-measure">кг</div>
+					</div>
+					
+					<div class="cat-food-block-card__disable-overlay"></div>
+				</div>
+				<div class="cat-food-block__order-text cat-food-block-order-text js-cat-food-block-order-text">
+					Головы щучьи с чесноком да свежайшая сёмгушка.
+				</div>
+				
+				<!-- Text to JS-replace -->
+				<div class="cat-food-block__order-text-example js-cat-food-block__order-text-example default">Чего сидишь? Порадуй котэ, <a href="#" rel="nofollow">купи</a>.</div>
+				<div class="cat-food-block__order-text-example js-cat-food-block__order-text-example selected">Головы щучьи с чесноком да свежайшая сёмгушка.</div>
+				<div class="cat-food-block__order-text-example js-cat-food-block__order-text-example disabled">Печалька, с рыбой закончился.</div>
+				
+			</div>
+
+			<!-- ITEM -->
+			<div class="cat-food-set__cat-food-block cat-food-block js-cat-food-block disabled" id="cat-food-block__3">
+				<div class="cat-food-block__card cat-food-block-card js-cat-food-block-card" style="background-image: url(./content-images/cat.png);">
+					<div class="cat-food-block-card__header-text">Сказочное заморское яство</div>
+					<div class="cat-food-block-card__header-text cancel-selected">Котэ не одобряет?</div>
+					
+					<h2 class="cat-food-block-card__item-names">
+						<div class="cat-food-block-card__item-name-1">Нямушка</div>
+						<div class="cat-food-block-card__item-name-2">с курой</div>
+					</h2>
+					
+					<div class="cat-food-block-card__item-description">
+						<span class="cat-food-block-card__item-description-counter">100</span> порций<br/>
+						<span class="cat-food-block-card__item-description-counter">5</span> мышей в подарок<br/>
+						заказчик доволен
+					</div>
+					
+					<div class="cat-food-block-card__item-weight">
+						<div class="cat-food-block-card__item-weight-number">5</div>
+						<div class="cat-food-block-card__item-weight-measure">кг</div>
+					</div>
+					
+					<div class="cat-food-block-card__disable-overlay"></div>
+				</div>
+				<div class="cat-food-block__order-text cat-food-block-order-text js-cat-food-block-order-text">
+					Печалька, с курой закончился.
+				</div>
+				
+				<!-- Text to JS-replace -->
+				<div class="cat-food-block__order-text-example js-cat-food-block__order-text-example default">Чего сидишь? Порадуй котэ, <a href="#" rel="nofollow">купи</a>.</div>
+				<div class="cat-food-block__order-text-example js-cat-food-block__order-text-example selected">Филе из цыплят с трюфелями в бульоне.</div>
+				<div class="cat-food-block__order-text-example js-cat-food-block__order-text-example disabled">Печалька, с курой закончился.</div>
+			</div>
+		
+		</div>
+	</div>
+	
+	<script src="./plugins/jquery/jquery.min.js"></script>
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script src="./plugins/plugins.js"></script>
+	<script src="./js/main.js"></script>
+</body>
+</html>
