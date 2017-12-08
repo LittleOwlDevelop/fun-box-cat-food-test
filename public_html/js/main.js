@@ -9,7 +9,7 @@ const preloaderAnimationDuration = 400;
 
 // Cart class
 function Card(id){
-	GetStatusList = function(){
+	this.GetStatusList = function(){
 		return ["default", "selected", "disabled", "on_process"]; // "on_process" not used now
 	},
 	this.id = id;
