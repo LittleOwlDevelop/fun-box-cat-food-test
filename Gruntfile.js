@@ -4,39 +4,39 @@ module.exports = function(grunt) {
 			jquery: {
 				files: [
 				// includes files within path
-				//{expand: true, cwd: 'bower_components/jquery/dist/jquery.min.js', src: ['**'], dest: 'public_html/js/'},
-				{expand: true, flatten: true, src: ['bower_components/jquery/dist/jquery.min.js'], dest: 'public_html/plugins/jquery/', filter: 'isFile'},
+				//{expand: true, cwd: 'bower_components/jquery/dist/jquery.min.js', src: ['**'], dest: 'docs/js/'},
+				{expand: true, flatten: true, src: ['bower_components/jquery/dist/jquery.min.js'], dest: 'docs/plugins/jquery/', filter: 'isFile'},
 				]
 			},
 			bootstrap: {
 				files: [
 				// includes files within path
-				//{expand: true, src: ['path/*'], dest: 'public_html/dest/', filter: 'isFile'},
+				//{expand: true, src: ['path/*'], dest: 'docs/dest/', filter: 'isFile'},
 			
 				// includes files within path and its sub-directories
-				//{expand: true, src: ['bower_components/bootstrap/dist/**'], dest: 'public_html/bootstrap/'},
-				{expand: true, flatten: true, src: ['bower_components/bootstrap/dist/css/**'], dest: 'public_html/bootstrap/css/', filter: 'isFile'},
-				{expand: true, flatten: true, src: ['bower_components/bootstrap/dist/js/**'], dest: 'public_html/bootstrap/js/', filter: 'isFile'},
-				{expand: true, flatten: true, src: ['bower_components/bootstrap/dist/fonts/**'], dest: 'public_html/bootstrap/fonts/', filter: 'isFile'},
+				//{expand: true, src: ['bower_components/bootstrap/dist/**'], dest: 'docs/bootstrap/'},
+				{expand: true, flatten: true, src: ['bower_components/bootstrap/dist/css/**'], dest: 'docs/bootstrap/css/', filter: 'isFile'},
+				{expand: true, flatten: true, src: ['bower_components/bootstrap/dist/js/**'], dest: 'docs/bootstrap/js/', filter: 'isFile'},
+				{expand: true, flatten: true, src: ['bower_components/bootstrap/dist/fonts/**'], dest: 'docs/bootstrap/fonts/', filter: 'isFile'},
 				
 				// makes all src relative to cwd
-				//{expand: true, cwd: 'path/', src: ['**'], dest: 'public_html/dest/'},
+				//{expand: true, cwd: 'path/', src: ['**'], dest: 'docs/dest/'},
 			
 				// flattens results to a single level
-				//{expand: true, flatten: true, src: ['path/**'], dest: 'public_html/bootstrap/', filter: 'isFile'},
+				//{expand: true, flatten: true, src: ['path/**'], dest: 'docs/bootstrap/', filter: 'isFile'},
 				]
 			},
 			slick_carousel: {
 				files: [
-				{expand: true, flatten: true, src: ['bower_components/slick-carousel/slick/ajax-loader.gif'], dest: 'public_html/plugins/', filter: 'isFile'},
-				{expand: true, flatten: true, src: ['bower_components/slick-carousel/slick/config.rb'], dest: 'public_html/plugins/', filter: 'isFile'},
-				{expand: true, flatten: true, src: ['bower_components/slick-carousel/slick/fonts/**'], dest: 'public_html/fonts/', filter: 'isFile'},
+				{expand: true, flatten: true, src: ['bower_components/slick-carousel/slick/ajax-loader.gif'], dest: 'docs/plugins/', filter: 'isFile'},
+				{expand: true, flatten: true, src: ['bower_components/slick-carousel/slick/config.rb'], dest: 'docs/plugins/', filter: 'isFile'},
+				{expand: true, flatten: true, src: ['bower_components/slick-carousel/slick/fonts/**'], dest: 'docs/fonts/', filter: 'isFile'},
 				]
 			},
 			lightgallery: {
 				files: [
-				{expand: true, flatten: true, src: ['bower_components/lightgallery/dist/fonts/**'], dest: 'public_html/fonts/', filter: 'isFile'},
-				{expand: true, flatten: true, src: ['bower_components/lightgallery/dist/img/**'], dest: 'public_html/img/', filter: 'isFile'},
+				{expand: true, flatten: true, src: ['bower_components/lightgallery/dist/fonts/**'], dest: 'docs/fonts/', filter: 'isFile'},
+				{expand: true, flatten: true, src: ['bower_components/lightgallery/dist/img/**'], dest: 'docs/img/', filter: 'isFile'},
 				]
 			},	
 				
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
 					
 					
 				],
-				dest: 'public_html/plugins/plugins.js',
+				dest: 'docs/plugins/plugins.js',
 			},
 			css: {
 				src:
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
 					'bower_components/perfect-scrollbar/css/perfect-scrollbar.min',
 					//'bower_components/slick-carousel/slick/slick-theme.css',
 				],
-				dest: 'public_html/plugins/plugins.css',
+				dest: 'docs/plugins/plugins.css',
 			},
 		}
 	});
